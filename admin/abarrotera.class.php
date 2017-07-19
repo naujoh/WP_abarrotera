@@ -9,7 +9,8 @@ if(!class_exists('Abarrotera')){
 		var $configuracion = null;
 		function __construct()
 		{
-			include_once('../../configuracion.php');
+			// print_r($_SERVER); die();
+			include_once($_SERVER['DOCUMENT_ROOT'].'/abarrotera/configuracion.php');
 			$this->configuracion=$configuracion;
 			$this->conexion = $conexion;
 		}
@@ -57,24 +58,27 @@ if(!class_exists('Abarrotera')){
 		function actualizar($tabla, $parametros, $llaves){
 			$datos = array_keys($parametros);
 			$keys = array_keys($llaves);
-			array_walk($datos, function(&$item){$item=$item.'=:'.$item;});
-			array_walk($keys, function(&$item){$item=$item.'=:'.$item;});
+			array_walk($datos, function(&$item){$item=$item.'=?';});
+			array_walk($keys, function(&$item){$item=$item.'=?';});
 			$sql = 'UPDATE '.$tabla.' SET '.implode(",", $datos).' WHERE '.implode(" and ", $keys);
 			// echo $sql; die();
 			try{
 				$statement=$this->conexion->prepare($sql);
+				$i=1;
 				foreach ($parametros as $key => $value) {
-					$statement->bindValue(':'.$key, $value);
+					$statement->bindValue($i, $value);
+					$i++;
 				}
 				foreach ($llaves as $key => $value) {
-					$statement->bindParam(':'.$key, $value);
+					$statement->bindValue($i, $value);
+					$i++;
 				}
 				return $statement->execute();		
+				// echo $statement->execute(); die();
 			} 
 			catch (Exception $e){
 				echo 'La exception: '. $e->getMessage(). '\n';
 			}
-
 		}
 
 		/**
@@ -124,9 +128,20 @@ if(!class_exists('Abarrotera')){
 			$select .= '</select>';
 			return $select;
 		}
+
+		function guardia($roles_permitidos){
+			if(isset($_SESSION['validado'])){
+				if($_SESSION['validado']){
+					foreach ($_SESSION['roles'] as $rol) {
+						if(in_array($rol, $roles_permitidos)){
+							echo 'Si se encontro el rol';
+						}
+					}
+				}
+			}
+		}
 	}
 	$abarrotera = new Abarrotera();
 }
-//$abarrotera = new Abarrotera;
 ?>
 

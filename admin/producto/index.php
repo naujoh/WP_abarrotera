@@ -20,7 +20,7 @@
 			// echo '<td>'.$value['apaterno'].'</td>';
 			// echo '<td>'.$value['amaterno'].'</td>';
 			echo '<td>'.$value['marca'].'</td>';
-			echo '<td><a href="../presentacion/index.php?id_producto='.$value['id_producto'].'" class="btn btn-success" role="button">Ver presentacions</a></td>';			
+			echo '<td><a href="../presentacion/index.php?id_producto='.$value['id_producto'].'" class="btn btn-success" role="button">Ver presentaciones</a></td>';			
 			echo '<td><a href="editar.php?id_producto='.$value['id_producto'].'" class="btn btn-primary" role="button">Editar</a></td>';
 			echo '<td><a href="eliminar.php?id_producto='.$value['id_producto'].'" class="btn btn-danger" role="button">Eliminar</a></td>';
 			echo '</tr>';

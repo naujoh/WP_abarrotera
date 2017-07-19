@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	/*CONFIGURACION DE LA BD - CONEXION*/ 
 	define ('USER', 'gerente');
 	define ('PASSWORD', '12345');
