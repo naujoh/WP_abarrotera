@@ -1,5 +1,7 @@
 <?php
 include_once('../abarrotera.class.php');
+$rol[0] = 'Administrador';
+$abarrotera->guardia($rol);
 // include_once('index.php');
 $id_categoria = $_GET['id_categoria'];
 $parametros['id_categoria']=$id_categoria;

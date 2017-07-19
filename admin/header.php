@@ -14,6 +14,9 @@
 
 </head>
 <body>
+<?php
+  if(isset($_SESSION['validado'])):
+?>
 <nav class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -58,13 +61,19 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuenta <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/abarrotera/admin/detalles">Detalles</a></li>
-            <li><a href="/abarrotera/admin/logout">Log out</a></li>
+            <li><a href="/abarrotera/admin/login/logout.php">Log out</a></li>
           </ul>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<?php
+  else:
+?>
+<?php
+  endif;
+?>
 <?php
   if(isset($mensaje) & isset($color)){
     echo '<div class="alert alert-'.$color.'" role="alert">'.$mensaje.'</div>';

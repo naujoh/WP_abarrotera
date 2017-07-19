@@ -1,6 +1,6 @@
 <?php 
 	include('../abarrotera.class.php');
-	$rol[0] = 'Administrador';
+	$rol[0] = 'Cliente';
 	$abarrotera->guardia($rol);
 	include('../header.php');
 	echo '<div class="container">';	

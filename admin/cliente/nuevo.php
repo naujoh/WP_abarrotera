@@ -1,5 +1,7 @@
 <?php  
 	include_once('../abarrotera.class.php');
+	$rol[0] = 'Administrador';
+	$abarrotera->guardia($rol);	
 	// print_r($_FILES);
 	if(isset($_POST['enviar'])){
 		if(isset($_FILES['foto']['name'])){

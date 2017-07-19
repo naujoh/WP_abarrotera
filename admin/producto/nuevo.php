@@ -1,5 +1,7 @@
 <?php
 include_once('../abarrotera.class.php');
+$rol[0] = 'Administrador';
+$abarrotera->guardia($rol);
 $marcas = $abarrotera->dropdownList('SELECT id_marca as id, marca as opcion FROM marca order by marca asc', 'id_marca');
 
 if(isset($_POST['enviar'])){

@@ -1,5 +1,7 @@
 <?php 
 include('../abarrotera.class.php');
+$rol[0] = 'Administrador';
+$abarrotera->guardia($rol);
 include('../header.php');
 echo '<div class="container">';
 $datos = $abarrotera->consultar('SELECT * from sucursal');

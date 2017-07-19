@@ -1,5 +1,7 @@
 <?php
 include_once('../abarrotera.class.php');
+$rol[0] = 'Administrador';
+$abarrotera->guardia($rol);	
 // include_once('index.php');
 $id_empleado = $_GET['id_empleado'];
 $parametros['id_empleado']=$id_empleado;

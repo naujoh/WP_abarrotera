@@ -1,5 +1,7 @@
 <?php 
 	include('../abarrotera.class.php');
+	$rol[0] = 'Administrador';
+	$abarrotera->guardia($rol);	
 	include('../header.php');
 	echo '<div class="container">';	
 	$datos = $abarrotera->consultar('SELECT id_cliente, correo, foto, u.id_usuario, concat(nombre," ",apaterno," ",amaterno) as nombre from cliente c join usuario u on c.id_usuario = u.id_usuario order by nombre asc');

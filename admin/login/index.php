@@ -57,7 +57,5 @@ include_once('../header.php');
 		</div>	
 		<input class="btn btn-primary" type="submit" name="login" value="Login">
 	</form>
-	<a href="../registro/nuevo.php">Registro</a>
-	<a href="../registro/recuperar.php">Recuperar contrasena</a>
 </div>
 <?php include_once('../footer.php'); ?>

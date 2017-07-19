@@ -1,5 +1,7 @@
 <?php 
 	include('../abarrotera.class.php');
+	$rol[0] = 'Administrador';
+	$abarrotera->guardia($rol);	
 	include('../header.php');
 	echo '<div class="container">';	
 	$datos = $abarrotera->consultar('SELECT id_empleado, correo, u.id_usuario, concat(nombre," ",apaterno," ",amaterno) as nombre from empleado c join usuario u on c.id_usuario = u.id_usuario order by nombre asc');
@@ -16,9 +18,8 @@
 		foreach ($datos as $key => $value) {
 			echo '<tr>';
 			echo '<td>'.$value['nombre'].'</td>';
-			// echo '<td>'.$value['apaterno'].'</td>';
-			// echo '<td>'.$value['amaterno'].'</td>';
 			echo '<td>'.$value['correo'].'</td>';
+			echo '<td><a href="usuario_rol.php?id_usuario='.$value['id_usuario'].'" class="btn btn-success" role="button">Roles</a></td>';
 			echo '<td><a href="editar.php?id_empleado='.$value['id_empleado'].'" class="btn btn-primary" role="button">Editar</a></td>';
 			echo '<td><a href="eliminar.php?id_empleado='.$value['id_empleado'].'" class="btn btn-danger" role="button">Eliminar</a></td>';
 			echo '</tr>';

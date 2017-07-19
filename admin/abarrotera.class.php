@@ -132,12 +132,23 @@ if(!class_exists('Abarrotera')){
 		function guardia($roles_permitidos){
 			if(isset($_SESSION['validado'])){
 				if($_SESSION['validado']){
+					$band=false;
 					foreach ($_SESSION['roles'] as $rol) {
 						if(in_array($rol, $roles_permitidos)){
-							echo 'Si se encontro el rol';
+							$band = true;
 						}
 					}
+					if(!$band){
+						$error=3;
+					}
+				}else{
+					$error=2;
 				}
+			}else{
+				$error=1;
+			}
+			if(!$band){
+				header('Location: ../login/index.php?error='.$error);
 			}
 		}
 	}

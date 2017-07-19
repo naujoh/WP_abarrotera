@@ -1,5 +1,7 @@
 <?php
 include_once('../abarrotera.class.php');
+$rol[0] = 'Administrador';
+$abarrotera->guardia($rol);	
 $proveedores = $abarrotera->dropdownList('SELECT id_proveedor as id, proveedor as opcion FROM proveedor order by proveedor asc', 'id_proveedor');
 
 $categorias = $abarrotera->dropdownList('SELECT id_categoria as id, categoria as opcion FROM categoria order by categoria asc', 'id_categoria');

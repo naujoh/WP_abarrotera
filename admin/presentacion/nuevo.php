@@ -1,5 +1,7 @@
 <?php
 include_once('../abarrotera.class.php');
+$rol[0] = 'Administrador';
+$abarrotera->guardia($rol);	
 if(isset($_REQUEST['id_producto'])){
 	$parametros['id_producto']=$_REQUEST['id_producto'];
 }else{

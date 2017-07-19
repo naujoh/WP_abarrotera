@@ -1,5 +1,7 @@
 <?php
 include_once('../abarrotera.class.php');
+$rol[0] = 'Administrador';
+$abarrotera->guardia($rol);
 // include_once('index.php');
 $id_unidad_medida = $_GET['id_unidad_medida'];
 $parametros['id_unidad_medida']=$id_unidad_medida;

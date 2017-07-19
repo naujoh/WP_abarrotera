@@ -1,5 +1,7 @@
 <?php  
 	include_once('../abarrotera.class.php');
+	$rol[0] = 'Administrador';
+	$abarrotera->guardia($rol);
 	if(isset($_POST['enviar'])){
 		$parametros['rol']=$_POST['rol'];
 		$abarrotera->insertar('rol',$parametros);

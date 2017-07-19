@@ -1,5 +1,7 @@
 <?php 
 	include_once('../abarrotera.class.php');
+	$rol[0] = 'Administrador';
+	$abarrotera->guardia($rol);
 	include_once('../header.php');
 	echo '<div class="container">';
 	$datos = $abarrotera->consultar('SELECT * from proveedor');
