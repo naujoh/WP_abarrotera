@@ -92,15 +92,16 @@ if(!class_exists('Abarrotera')){
 				if(count($parametros)==$c){
 					$where .= $key.'= :'.$key;
 				}else{
-					$where .= $key.'= :'.$key.' AND';
+					$where .= $key.'= :'.$key.' AND ';
 				}
 				$c++;
 			}
 			$sql = $sql . $where;
+			// print_r($sql); die();
 			try{
 				$statement=$this->conexion->prepare($sql);
 				foreach ($parametros as $key => $value) {
-					$statement->bindParam(':'.$key, $value);
+					$statement->bindValue(':'.$key, $value);
 				}
 				return $statement->execute();		
 			} 

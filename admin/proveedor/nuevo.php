@@ -8,7 +8,6 @@
 			$origen = $_FILES['logo']['tmp_name'];
 			// $destino = '/opt/lampp/htdocs/abarrotera/image/proveedor/'.$_FILES['logo']['name'];
 			$destino = '../../image/proveedor/'.$_FILES['logo']['name'];
-			echo 'ori > '.$origen.' | des > '. $destino;
 			if($abarrotera->validarImagen($_FILES['logo'])){
 				if(move_uploaded_file($origen, $destino)){
 					$parametros['proveedor']=$_POST['proveedor'];

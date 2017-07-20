@@ -21,8 +21,8 @@
 				</div>
 				<div id="login">
 					<ul>
-						<li><a href="registro.php">Registro</a></li>
-						<li><a href="login.php">Login</a></li>
+						<li><a href="venta/registro/nuevo.php">Registro</a></li>
+						<li><a href="venta/login/index.php">Login</a></li>
 					</ul>
 				</div>
 			</header>
